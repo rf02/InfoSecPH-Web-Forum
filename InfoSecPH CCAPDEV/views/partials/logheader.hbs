@@ -1,0 +1,76 @@
+
+
+<div class="header container-fluid">
+    <div class="row align-items-start">
+        <div class="col-md-1 d-flex justify-content-center align-items-center">
+            <div class="img-logo img-container" id="img-logo">
+                <a href="/">
+                    <img src="https://i.imgur.com/P7yu8PD.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <div class="dropdown">
+                <button>Check Out Preferred Boards</button>
+
+                <div class="dropdown-content">
+                    {{#each communityHeader}}
+                    <a href="/community/{{_id}}">
+                        <div class="community-pfp img-container"><img src={{image}}></div>
+                        <span>{{community_name}}</span>
+                    </a>
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+        <div class="searchcol col-md-6 d-flex justify-content-center align-items-center">
+            <form class="searchform">
+                <div class="searchbar">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search Anything...">
+                          <button><a class="anchor-post"  href="/error">Search</a></button>
+                </div>    
+            </form>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+
+            
+{{!--             
+            {{#each user}} --}}
+            {{#if log.0.logged_on}}
+            <div class="log sign-up">
+                <a id="logout123" href="/">
+                    <span class="log-icon material-symbols-outlined">person_add</span>
+                    <span class="log-desc">Log out</span>
+                </a>
+            </div>
+            {{else}}
+          
+       
+            {{/if}}
+            {{!-- {{/each}} --}}
+
+
+        </div>
+        <div class="col-md-1 d-flex justify-content-center align-items-center">
+            {{!-- <div class="user-header">
+                {{#each log}}
+                {{#if logged_on}}
+                <a href="/profile/{{uid}}">
+                    <div class="user-pfp img-container"><img src="{{pfp}}"></div>
+                 
+                <span id="header-user-nams" class="user-name">{{username}}</span>
+                </a>
+                {{else}}
+                 <a href="/">
+                    <div class="user-pfp img-container"><img src="https://static.thenounproject.com/png/1095867-200.png"></div>
+                 
+                <span id="header-user-nams" class="user-name">{{username}}</span>
+                </a>
+                {{/if}}
+                {{/each}}
+            </div> --}}
+        </div>
+    </div>
+</div>

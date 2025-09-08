@@ -1,0 +1,35 @@
+<aside class="aside">
+
+    <div class="aside-div top-post">
+        <div class="side-header">Top Posts</div>
+        {{#each top_posts}}
+        <div class="side-posts">
+            {{#if image}}
+                <div class="side-img img-container2"><img src="{{image}}"></div>
+            {{else}}
+            {{/if}}
+            <div class="post-title-side">
+                <a style="text-decoration: none; color: white;" href="/post/{{_id}}"><h5>{{title}}</h5></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="aside-div recent-post">
+        <div class="side-header">Recent Posts</div>
+        {{#each recent_posts}}
+        {{#unless hidden}}
+            <div class="side-posts">
+                {{#if image}}
+                    <div class="side-img img-container2"><img src="{{image}}"></div>
+                {{else}}
+                {{/if}}
+                <div class="post-title-side">
+                    <a style="text-decoration: none; color: white;" href="/post/{{_id}}"><h5>{{title}}</h5></a>
+                </div>
+            </div>
+        {{/unless}}    
+       {{/each}}
+    </div>
+
+</aside>

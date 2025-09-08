@@ -1,0 +1,155 @@
+@media only screen and (max-width: 1550px){
+    .dropdown{
+        margin-left: 75px;
+    }
+    .searchbar{
+        width: 500px;
+    }
+    .log .sign-up{
+        margin-right: 20px;
+    }
+    .log .login{
+        margin-right: 75px;
+    }
+    .aside{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1080px){
+    .dropdown{
+        display: none;
+    }
+    .searchbar{
+        width: 250px;
+        margin-right: 300px;
+    }
+    .log .sign-up{
+        margin-right: 20px;
+    }
+    .log .login{
+        margin-right: 250px;
+    }
+
+    .user-header{
+        margin-right: 55px;
+    }
+
+    .post-header{
+        width: auto;
+    }
+
+    .post-bar{
+        width: 500px
+    }
+
+    .post-img{
+        border: none;
+        width: 100%;
+        max-width: 655px;
+    }
+
+    .sort-label{
+        margin-left: 15px;
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .header{
+        display: none;
+    }
+
+    .header-row{
+        display: none;
+    }
+
+    .img-logo{
+        display:none;
+    }
+
+    .searchbar{
+        display:none;
+    }
+
+    .main-col1, .main-col2{
+        width: 500px
+    }
+
+    .parent-post-bar{
+        width: 500px;
+    }
+
+    .user-pfp, .post-outer-icon{
+        display: none;
+    }
+
+    .post-header{
+        width: auto;
+    }
+
+    .post, .post-div{
+        width: 500px;
+    }
+
+    .post-icon-desc{
+        font-size: 0.85em;
+    }
+
+    .footer{
+        width: 125px;
+    }
+
+    .date_details, #date{
+        display:none;
+    }
+
+    .post-bar{
+        width: 450px
+    }
+
+    .post-img{
+        border: none;
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .sort-label{
+        margin-left: 15px;
+        font-size: 1em;
+    }
+
+    .searchbar{
+        width: 50px;
+    }
+
+    .navbar{
+        position: fixed;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .nav-div, .navbar{
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    .nav-item{
+        width: 85px;
+    }
+
+    .navbar:hover{
+        width: 100vw;
+    }
+
+    .navbar:hover .link-text{
+        display: none;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+}

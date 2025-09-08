@@ -1,0 +1,206 @@
+<div class="main-container container mx-auto">
+    <div class="col-md-15 d-flex justify-content-left align-items-center">
+        <div class="post">
+            <header class="post-header2">
+                <div class="header-details">
+                    <div class="community-pfp-large img-container">
+                        <a class="anchor-post" href="/profile/{{post.uid._id}}"><img src={{post.uid.pfp}}></a>
+                    </div>
+                    <a class="anchor-post" href="/profile/{{post.uid._id}}">
+                        <span class="community-name" id="c-name">{{post.uid.username}}</span>
+                    </a>
+                    <span class="post-details divider">&#8226;</span>
+                    <span class="post-details posted">Posted by [</span>
+                    <span class="post-details" id="user-name">{{post.uid.name}}</span>
+                    <span class="post-details date_details">] Date:</span>
+                    <span class="post-details" id="date">{{post.date}}</span>
+                    {{#if post.edited}}
+                     <span class="post-details">(Edited)</span>
+                     {{/if}}
+                    
+                    
+            
+                    {{#each post.cid}}
+                    <a class="anchor-post anchor-community" href="/community/{{_id}}">
+                        <span class="post-tag-{{color}}">{{community_name}}</span>
+                    </a>
+                    {{/each}}
+                </div>
+                {{#if log}}
+                {{#if (isSameId log._id post.uid._id)}}
+                <div class="post-more">
+                    <span class="post-icon-3 material-symbols-outlined">more_horiz</span>
+                    <div class="dropdown-content2">
+                        <div class="post-dropdown"><a href="/post/edit/{{post._id}}"><span class="dd-icon post-icon material-symbols-outlined">edit</span>Edit Post</a></div>
+                        <div class="post-dropdown"><a href="/post/delete/{{post._id}}"><span class="dd-icon post-icon material-symbols-outlined">delete</span>Delete Post</a></div>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+            </header>
+            <div class="post-title">
+                <a class="anchor-post" href="/post/{{post._id}}"><h2>{{post.title}}</h2></a>
+                <p>{{post.text}}</p>
+            </div>
+
+            {{#if post.image}}
+            <div class="center-post-img"><img class="img-container3" src={{post.image}}></div> 
+            {{else}}
+             {{/if}}
+
+            <footer class="post-footer">
+                <div class="footer">
+                    <div class="post-icon">
+                        <form id="upForm" action="/action/up/{{post._id}}">
+                        <input class="radio-post" type="radio" name="vote" id="upvote">
+                            <label class="post-label" for="upvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_upward</span>
+                                <span class="upvote-count post-icon-desc">{{post.up}}</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="post-icon">
+                        <input class="radio-post" type="radio" name="vote" id="downvote">
+                        <form id="downForm" action="/action/down/{{post._id}}">
+                            <label class="post-label" for="downvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_downward</span>
+                                <span class="downvote-count post-icon-desc">{{post.down}}</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="post-icon">
+                        <form id="bookmarkForm" action="/action/bookmark/{{post._id}}">
+                            <input class="radio-post" type="radio" name="bookmark" id="bookmark">
+                            <label class="post-label" for="bookmark">
+                                <span class="footer-post-icon material-symbols-outlined">bookmark</span>
+                                <span class="post-icon-desc">Bookmark</span>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </footer>
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="create-comment">
+            <form action="/post/comment/{{post._id}}" method="POST">
+                <div class="post-bar comment">
+                    <labael for="comment" class="post-icon material-symbols-outlined">comment</labael>
+                    <input class="post-input" name="comment" type="search" placeholder="Comment on this post!">
+                    <button class="comment-btn" type="submit">Comment</button>
+                </div>
+            </form>
+            </div>
+<!--------------------------------------------------------------- comment part------------------------------------------------------------------------------------->
+            {{#each commentThread.comment}}
+            <div class="comment-div col-md-15 d-flex justify-content-left align-items-center">
+                <div class="post">
+                    <header class="comment-header">
+                        <div class="header-details">
+                            <div class="community-pfp-large img-container">
+                            <a class="anchor-post" href="/profile/{{uid._id}}">
+                                <img src={{uid.pfp}}>
+                             </a>
+                            </div>
+                           
+                            <a class="anchor-post" href="/profile/{{uid._id}}">
+                             <span class="community-name" id="c-name">{{uid.username}}</span>
+                            </a>
+
+                            <span class="comment-details divider">&#8226;</span>
+                            <span class="comment-details" id="time posted">3 hr. ago</span>
+                            
+                        </div>
+                    </header>
+        
+                    <main class="comment-main">
+                        <div class="comment">
+                            <p>{{text}}</p>
+                            <footer class="post-footer">
+                                <div class="footer">
+                                    <div class="post-icon">
+                                        <input class="radio-post" type="radio" name="vote" id="upvote">
+                                            <label class="post-label" for="upvote">
+                                                <span class="footer-post-icon material-symbols-outlined">arrow_upward</span>
+                                                <span class="upvote-count post-icon-desc">{{up}}</span>
+                                            </label>
+                                        </input>
+                                    </div>
+                                    <div class="post-icon">
+                                        <input class="radio-post" type="radio" name="vote" id="downvote">
+                                            <label class="post-label" for="downvote">
+                                                <span class="footer-post-icon material-symbols-outlined">arrow_downward</span>
+                                                <span class="downvote-count post-icon-desc">{{down}}</span>
+                                            </label>
+                                        </input>
+                                    </div>
+                                    <div class="post-icon">
+                                        <div class="post-label">
+                                            <button id="reply" class="post-icon-desc">
+                                                <span class="footer-post-icon material-symbols-outlined">tooltip</span>Reply
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="create-reply">
+                                <form class="post-label reply-label" action="comment/{{../post._id}}/{{uid._id}}" method="POST">
+                                    <div class="reply-bar post-bar comment">
+                                        <labael for="reply" class="post-icon material-symbols-outlined">comment</labael>
+                                        <input class="post-input" name="reply" type="search" placeholder="Reply here!">
+                                        <button class="reply-btn" type="submit">Reply</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </footer>
+<!------------------------------------------------------------------- reply --------------------------------------------------------------------------------------->
+                            {{#each reply}}
+                            <div class="comment-reply">
+                                <div class="comment-header">
+                                    <div class="header-details">
+                                        
+                                        <div class="community-pfp-large img-container">
+                                             <a class="anchor-post" href="/profile/{{uid._id}}">
+                                            <img src={{uid.pfp}}>
+                                            </a>
+                                        </div>
+                                       <a class="anchor-post" href="/profile/{{uid._id}}">
+                                        <span class="community-name" id="c-name">{{uid.username}}</span>
+                                        </a>
+                                        <span class="comment-details divider">&#8226;</span>
+                                        <span class="comment-details" id="time posted">1 hr. ago</span>
+                                    </div>
+                                </div>
+                                <main class="comment-main">
+                                    <div class="comment">
+                                        <p>{{text}}</p>
+                                    </div>
+                                    <footer class="post-footer">
+                                        <div class="footer">
+                                            <div class="post-icon">
+                                                <input class="radio-post" type="radio" name="vote" id="upvote">
+                                                    <label class="post-label" for="upvote">
+                                                        <span class="footer-post-icon material-symbols-outlined">arrow_upward</span>
+                                                        <span class="upvote-count post-icon-desc">{{up}}</span>
+                                                    </label>
+                                                </input>
+                                            </div>
+                                            <div class="post-icon">
+                                                <input class="radio-post" type="radio" name="vote" id="downvote">
+                                                    <label class="post-label" for="downvote">
+                                                        <span class="footer-post-icon material-symbols-outlined">arrow_downward</span>
+                                                        <span class="downvote-count post-icon-desc">{{down}}</span>
+                                                    </label>
+                                                </input>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </main>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </main>
+                </div>
+            </div>
+            {{/each}}
+<!------------------------------------------------------------------- end ----------------------------------------------------------------------------------------->
+        </div>
+    </div>
+</div>

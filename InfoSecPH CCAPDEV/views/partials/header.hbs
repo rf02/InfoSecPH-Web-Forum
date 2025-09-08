@@ -1,0 +1,79 @@
+<div class="header container-fluid">
+    <div class="row align-items-start">
+        <div class="col-md-1 d-flex justify-content-center align-items-center">
+            <div class="img-logo img-container" id="img-logo">
+                <a href="/">
+                    <img src="https://i.imgur.com/P7yu8PD.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <div class="dropdown">
+                <button>Check Out Preferred Boards</button>
+
+                <div class="dropdown-content">
+                    {{#each communityHeader}}
+                    <a href="/community/{{_id}}">
+                        <div class="community-pfp img-container"><img src={{image}}></div>
+                        <span>{{community_name}}</span>
+                    </a>
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+        <div class="searchcol col-md-6 d-flex justify-content-center align-items-center">
+            <form class="searchform" action="/search" method="GET">
+                <div class="searchbar">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input id="searching" class="search-input" type="search" name="query" placeholder="Search Anything...">
+                    <button id="searchit" type="submit">Search</button>
+                </div>    
+            </form>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+        {{#if log}}
+        <form action="/logout?_method=DELETE" method="POST">
+        <div class="logout sign-up">
+            <button type="submit">
+                <span class="log-icon material-symbols-outlined">logout</span>
+                <span class="log-desc">Log out</span>
+            </button>
+        </div>
+        </form>
+        {{else}}
+        <div class="log sign-up">
+            <a href="/log/signup">
+                <span class="log-icon material-symbols-outlined">person_add</span>
+                <span class="log-desc">Sign Up</span>
+            </a>
+        </div>
+        <div class="log login">
+            <a href="/log/login">
+                <span class="log-icon material-symbols-outlined">login</span>
+                <span class="log-desc">Login</span>
+            </a>
+        </div>
+        {{/if}}
+        </div>
+
+        <div class="col-md-1 d-flex justify-content-center align-items-center">
+            {{#if log}}
+            <div class="user-header">
+                <a href="/profile/{{log._id}}">
+                    <div class="user-pfp img-container"><img src="{{log.pfp}}"></div>
+                    <span id="header-user-nams" class="user-name">{{log.username}}</span>
+                </a>
+            </div>
+            {{else}}
+            <div class="guest-header">
+                <a href="/log/login">
+                    <div class="user-pfp img-container"><img src="https://static.thenounproject.com/png/1095867-200.png"></div>
+                    <span id="header-user-nams" class="user-name">Guest</span>
+                </a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="main-container container mx-auto">
+    <div class="col-md-12 d-flex justify-content-start align-items-start">
+        <form action="/log/signup" method="POST">
+            <div class="main-log">
+                <div class="log-inputText">
+                    <label for="username" class="log-prompt">Enter Username:</label>
+                    <input type="text" id="username" name="username" required="required">
+                    <span>Username</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="name" class="log-prompt">Enter Name:</label>
+                    <input type="text" id="name" name="name" required="required">
+                    <span>Name</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="password" class="log-prompt">Enter Password:</label>
+                    <input type="password" id="password" name="password" required="required">
+                    <span>Password</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="password2" class="log-prompt">Verify Password:</label>
+                    <input type="password" id="password2" name="password2" required="required">
+                    <span>Password</span>
+                </div>
+                <div class="log sign-up">
+                    <button id="signupBtn" type="submit">
+                        <span class="log-icon material-symbols-outlined">person_add</span>
+                        <span>Sign Up</span>
+                    </button>
+                </div>
+                <div id="forgot-pw" class=" post-icon">
+                    <span>Already have an account? &nbsp
+                        <a href="/log/login" class="post-label">
+                            <span>Sign in!</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div class="EULA">
+            <h2 class="EULA-header">End User License Agreement</h2>
+            <p class="EULA-text">
+                By clicking the "I accept the terms in the License Agreement" button, downloading or using the Application, You are agreeing to be bound by the
+                terms and conditions of this Agreement. If You do not agree to the terms of this Agreement, do not click on
+                the "I Agree" button, do not download or do not use the Application.
+                This Agreement is a legal document between You and the Company and it governs your use of the
+                Application made available to You by the Company.
+                This Agreement is between You and the Company only and not with the Application Store. Therefore, the
+                Company is solely responsible for the Application and its content. Although the Application Store is not a
+                party to this Agreement, it has the right to enforce it against You as a third party beneficiary relating to your
+                use of the Application.
+                The Application is licensed, not sold, to You by the Company for use strictly in accordance with the terms of
+                this Agreement.
+            </p>
+            <div class="EULA-check-container">
+                <input type="checkbox" id="EULA-checkbox">
+                <label class="EULA-label" for="EULA-checkbox">I accept the terms in the License Agreement</label>
+            </div>
+        </div>
+    </div>
+</div>

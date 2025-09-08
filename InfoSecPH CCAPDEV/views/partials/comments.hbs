@@ -1,0 +1,49 @@
+<div class="main-container container mx-auto">
+    <div class="col-md-15 d-flex justify-content-center align-items-center">
+        <h1 class="friend-header">Comment List</h1>
+    </div>
+    {{#each comments}}
+        {{#each comment}}
+        {{#if (isSameId uid._id ../../user._id)}}
+        <div class="comment-list">
+            <a class="anchor-post" href="/profile/{{uid._id}}">
+                <div class="community-pfp-large img-container"><img src={{uid.pfp}}></div>
+                <p>{{uid.username}}</p>
+            </a>
+        <div class="text">
+            <p class="textarea-comment">{{text}}</p>
+        </div>
+            <div class="friend-btn log2">
+                <a href="/post/{{../pid}}"><span >Go To Post</span></a>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+    {{/each}}
+</div>
+
+<div class="main-container container mx-auto">
+    <div class="col-md-15 d-flex justify-content-center align-items-center">
+        <h1 class="friend-header">Reply List</h1>
+    </div>
+    {{#each comments}}
+        {{#each comment}}
+        {{#each reply}}
+        {{#if (isSameId uid._id ../../../user._id)}}
+        <div class="comment-list">
+            <a class="anchor-post" href="/profile/{{uid._id}}">
+                <div class="community-pfp-large img-container"><img src={{uid.pfp}}></div>
+                <p>{{uid.username}}</p>
+            </a>
+        <div class="text">
+            <p class="textarea-comment">{{text}}</p>
+        </div>
+            <div class="friend-btn log2">
+                <a href="/post/{{../../pid}}"><span >Go To Post</span></a>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+        {{/each}}
+    {{/each}}
+</div>

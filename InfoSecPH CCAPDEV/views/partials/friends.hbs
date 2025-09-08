@@ -1,0 +1,21 @@
+<div class="main-container container mx-auto">
+    <div class="col-md-15 d-flex justify-content-center align-items-center">
+        <h1 class="friend-header">Friend List</h1>
+    </div>
+    {{#each log.friends}}
+    <div class="friend">
+        <a class="anchor-post" href="/profile/{{_id}}">
+            <div class="community-pfp-large img-container"><img src={{pfp}}></div>
+            <p>{{username}}</p>
+        </a>
+        <div class="friend-btn log2">
+            <a href="/profile/{{_id}}"><span >Visit Profile</span></a>
+        </div>
+        <div class="friend-btn log2">
+            <form action="/log/unfriend/{{_id}}" method="POST">
+            <button class="unfriend-Btn" type="submit"><span >Unfriend</span></button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>

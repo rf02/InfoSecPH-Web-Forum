@@ -1,0 +1,117 @@
+<div class="main-container container mx-auto">
+    <div class="col-md-15 d-flex justify-content-left align-items-center">
+        <header class="post-header">
+            <div class="header-details">
+                <div class="profile-pfp img-container"><img src={{user.pfp}}></div>
+                <span id="p-name">{{user.username}} | {{user.name}}</span>
+            </div>
+            <div class="post-title user-bio"><h6>{{user.bio}}</h6></div>
+            <div class="d-flex">
+                <div class="log2 ">
+                    <a href="/profile/comments/{{user._id}}"><span >Comments</span></a>
+                </div>
+                {{#if log}}
+                {{#if_cond log.username '===' user.username}}
+                <div class="log2 ">
+                    <a href="/log/settings"><span >Edit Profile</span></a>
+                </div>
+                {{else}}
+                <div class="log2 ">
+                    <form action="/profile/friend/{{../user._id}}" method="POST">
+                    <button class="friend-Btn" type="submit"><span >Add Friend</span></button>
+                    </form>
+                </div>  
+                {{/if_cond}}
+                {{/if}}
+            </div>
+        </header>
+    </div>
+    
+    {{#each posts}}
+    {{#unless hidden}}
+    <div class="col-md-15 d-flex justify-content-left align-items-center">
+        <div class="post">
+            <header class="post-header2">
+                <div class="header-details">
+                    <div class="community-pfp-large img-container">
+                        <a class="anchor-post" href="/profile/{{uid._id}}"><img src={{uid.pfp}}></a>
+                    </div>
+                    <a class="anchor-post" href="/profile/{{uid._id}}">
+                        <span class="community-name" id="c-name">{{uid.username}}</span>
+                    </a>
+                    <span class="post-details divider">&#8226;</span>
+                    <span class="post-details posted">Posted by [</span>
+                    <span class="post-details" id="user-name">{{uid.name}}</span>
+                    <span class="post-details date_details">] Date:</span>
+                    <span class="post-details" id="date">{{date}}</span>
+
+                     {{#if edited}}
+                     <span class="post-details">(Edited)</span>
+                     {{/if}}
+                    {{#each cid}}
+                    <a class="anchor-post anchor-community" href="/community/{{_id}}">
+                        <span class="post-tag-{{color}}">{{community_name}}</span>
+                    </a>
+                    {{/each}}
+                </div>
+                {{#if log}}
+                {{#if (isSameId ../log._id ../user._id)}}
+                <div class="post-more">
+                    <span class="post-icon-3 material-symbols-outlined">more_horiz</span>
+                    <div class="dropdown-content2">
+                        <div class="post-dropdown"><a href="/post/edit/{{_id}}"><span class="dd-icon post-icon material-symbols-outlined">edit</span>Edit Post</a></div>
+                        <div class="post-dropdown"><a href="/post/delete/{{_id}}"><span class="dd-icon post-icon material-symbols-outlined">delete</span>Delete Post</a></div>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+            </header>
+            <div class="post-title">
+                <a class="anchor-post" href="/post/{{_id}}"><h2>{{title}}</h2></a>
+                <p>{{text}}</p>
+            </div>
+
+            {{#if image}}
+            <div class="center-post-img"><img class="img-container3" src={{image}}></div>
+            {{else}}
+            {{/if}}
+
+            <footer class="post-footer">
+                <div class="footer">
+                    {{!-- <div class="post-icon">
+                        <input class="radio-post" type="radio" name="vote" id="upvote">
+                            <label class="post-label" for="upvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_upward</span>
+                                <span class="upvote-count post-icon-desc">{{up}}</span>
+                            </label>
+                        </input>
+                    </div>
+                    <div class="post-icon">
+                        <input class="radio-post" type="radio" name="vote" id="downvote">
+                            <label class="post-label" for="downvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_downward</span>
+                                <span class="downvote-count post-icon-desc">{{down}}</span>
+                            </label>
+                        </input>
+                    </div> --}}
+                    {{!-- <div class="post-icon">
+                        <input class="radio-post" type="radio" name="bookmark" id="bookmark">
+                            <label class="post-label" for="bookmark">
+                                <span class="footer-post-icon material-symbols-outlined">bookmark</span>
+                                <span class="post-icon-desc">Bookmark</span>
+                            </label>
+                        </input>
+                    </div> --}}
+                    <div class="post-icon">
+                        <a href="/post/{{_id}}" class="post-label">
+                           <span class="footer-post-icon material-symbols-outlined">visibility</span>
+                            <span class="post-icon-desc">View Upvotes, Downvotes, and Comments</span>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    {{/unless}}
+    {{/each}}
+</div>

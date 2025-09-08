@@ -1,0 +1,148 @@
+<div class="main-container container mx-auto">
+    {{#if log}}
+    <div class="col-md-15 d-flex justify-content-center align-items-center">
+        <div class="parent-post-bar">
+            <a href="/profile/{{log._id}}">
+                <div class="user-pfp img-container">
+                    <img src="{{log.pfp}}">
+                </div> 
+            </a>
+            <a style="text-decoration: none;" href="/post/create">
+                <div class="post-bar">
+                    <span class="post-icon material-symbols-outlined">edit_square</span>
+                    <input class="post-input" type="search" placeholder="Create Posts">
+                </div>
+            </a>
+            <div class="post-outer-icon post-bar-img">
+                <span class="post-icon2 material-symbols-outlined">image</span>
+            </div>
+            <div class="post-outer-icon post-bar-link">
+                <span class="post-icon2 material-symbols-outlined">add_link</span>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    {{/if}}
+    {{!-- <div class="col-md-15 d-flex justify-content-left align-items-center">
+        <div class="sort-bar">
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="Best" checked="checked">
+                    <label class="sort-label" for="Best">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="sort-desc">Best</span>
+                    </label>
+                </input>
+            </div>
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="Hot">
+                    <label class="sort-label" for="Hot">
+                        <span class="sort-icon material-symbols-outlined">rocket_launch</span>
+                        <span class="sort-desc">Hot</span>
+                    </label>
+                </input>
+            </div>
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="New">
+                    <label class="sort-label" for="New">
+                        <span class="sort-icon material-symbols-outlined">priority_high</span>
+                        <span class="sort-desc">New</span>
+                    </label>
+                </input>
+            </div>
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="Top">
+                    <label class="sort-label" for="Top">
+                        <span class="sort-icon material-symbols-outlined">keyboard_double_arrow_up</span>
+                        <span class="sort-desc">Top</span>
+                    </label>
+                </input>
+            </div>
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="Explicit">
+                    <label class="sort-label" for="Explicit">
+                        <span class="sort-icon material-symbols-outlined">mystery</span>
+                        <span class="sort-desc">Explicit</span>
+                    </label>
+                </input>
+            </div>
+            <div class="sort-outer">
+                <input class="radio-sort" type="radio" name="sort-radio-button" id="Liked">
+                    <label class="sort-label" for="Liked">
+                        <span class="sort-icon material-symbols-outlined">thumb_up</span>
+                        <span class="sort-desc">Liked</span>
+                    </label>
+                </input>
+            </div>
+        </div>
+    </div> --}}
+    {{#each posts}}
+    {{#unless hidden}}
+    <div class="col-md-15 d-flex justify-content-left align-items-center">
+        <div class="post">
+            <header class="post-header">
+                <div class="header-details">
+                    <span class="header-user-details">
+                        <a class="anchor-post" href="/profile/{{uid._id}}">
+                            <div class="community-pfp-large img-container"><img src={{uid.pfp}}></div>
+                            <p>{{uid.username}}</p>
+                        </a>
+                    </span>
+                    <span class="post-details divider">&#8226;</span>
+                    <span class="post-details posted">Posted by [</span>
+                    <span class="post-details" id="user-name">{{uid.name}}</span>
+                    <span class="post-details date_details">] Date:</span>
+                    <span class="post-details" id="date">{{date}}</span>
+                     {{#if edited}}
+                     <span class="post-details">(Edited)</span>
+                     {{/if}}
+
+                    {{#each cid}}
+                    <a class="anchor-post anchor-community" href="/community/{{_id}}">
+                        <span class="post-tag-{{color}}">{{community_name}}</span>
+                    </a>
+                    {{/each}}
+                </div>
+                <div class="post-title">
+                    <a class="anchor-post" href="/post/{{_id}}"><h2>{{title}}</h2></a>
+                    <p>{{text}}</p>
+                </div>
+            </header>
+
+            {{#if image}}
+            <div class="center-post-img"><img class="img-container3" src={{image}}></div>
+            {{else}}
+            {{/if}}
+
+            <footer class="post-footer">
+                <div class="footer">
+                    {{!-- <div class="post-icon">
+                        <form id="upForm" action="/action/up/{{_id}}">
+                        <input class="radio-post" type="radio" name="vote" id="upvote">
+                            <label class="post-label" for="upvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_upward</span>
+                                <span class="upvote-count post-icon-desc">{{up}}</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="post-icon">
+                        <form id="downForm" action="/action/down/{{_id}}">
+                        <input class="radio-post" type="radio" name="vote" id="downvote">
+                            <label class="post-label" for="downvote">
+                                <span class="footer-post-icon material-symbols-outlined">arrow_downward</span>
+                                <span class="downvote-count post-icon-desc">{{down}}</span>
+                            </label>
+                        </form>
+                    </div> --}}
+                    <div class="post-icon">
+                        <a href="/post/{{_id}}" class="post-label">
+                            <span class=" footer-post-icon material-symbols-outlined">visibility</span>
+                            <span class="post-icon-desc">View Upvotes, Downvotes, and Comments</span>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    {{/unless}}
+    {{/each}}
+</div>

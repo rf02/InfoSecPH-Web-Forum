@@ -1,0 +1,54 @@
+<div class="delete-post">
+    <div class="delete-container">
+        <div class="delete-header"><h2>DELETE THIS POST?</h2></div>
+
+        <div class="main-container container mx-auto">
+            <div class="col-md-15 d-flex justify-content-left align-items-center">
+                <div class="post">
+                    <header   header class="post-header2">
+                        <div class="header-details">
+                            <div class="community-pfp-large img-container">
+                                <a class="anchor-post" href="/profile/{{post.uid._id}}"><img src={{post.uid.pfp}}></a>
+                            </div>
+                            <a class="anchor-post" href="/profile/{{post.uid._id}}">
+                                <span class="community-name" id="c-name">{{post.uid.username}}</span>
+                            </a>
+                            <span class="post-details divider">&#8226;</span>
+                            <span class="post-details posted">Posted by [</span>
+                            <span class="post-details" id="user-name">{{post.uid.name}}</span>
+                            <span class="post-details date_details">] Date:</span>
+                            <span class="post-details" id="date">{{post.date}}</span>
+                            {{#each post.cid}}
+                            <a class="anchor-post anchor-community" href="/community/{{_id}}">
+                                <span class="post-tag-{{color}}">{{community_name}}</span>
+                            </a>
+                            {{/each}}
+                        </div>
+                    </header>
+
+                    <div class="post-title">
+                        <a class="anchor-post" href="/post/{{post._id}}"><h2>{{post.title}}</h2></a>
+                        <p>{{post.text}}</p>
+                    </div>
+                    {{#if post.image}}
+                    <div class="center-post-img"><img class="img-container3" src={{post.image}}></div> 
+                    {{/if}}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="delete-button-container">
+            <a href="/post/{{post._id}}">
+                <div class="goBackBtn">
+                    <button id="xDelete-Post-Btn" class="delete-post-btn" type="submit">Go Back</button>
+                </div>
+            </a>
+            <form action="{{post._id}}" method="POST">
+                <div class="deleteBtn">
+                    <button id="Delete-Post-Btn" class="delete-post-btn" type="submit">Delete Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

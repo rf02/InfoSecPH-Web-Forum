@@ -1,0 +1,42 @@
+<div class="main-container container mx-auto" style="width: 500px;">
+    <div class="col-md-12 d-flex justify-content-start align-items-start">
+        <form id="loginForm" action="/log/login" method="POST">
+            <div class="main-log">
+                {{#if message}}
+                    <div class="pop-up"><p>{{message}}</p></div>
+                {{/if}}
+                <div class="log-inputText">
+                    <label for="username" class="log-prompt">Enter Username:</label>
+                    <input id="username" name="username" type="text" required="required">
+                    <span>Username</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="password" class="log-prompt">Enter Password:</label>
+                    <input id="password" name="password" type="password" required="required">
+                    <span>Password</span>
+                </div>
+                <div class="log">
+                    <button id="loginBtn", type="submit">
+                        <span class="log-icon material-symbols-outlined">login</span>
+                        <span>Login</span>
+                    </button>
+                </div>
+                <div class="sort-outer-login">
+                    <input type="checkbox" name="rememberMe" id="rememberMe">
+                        <label class="sort-label2" for="rememberMe">
+                            <span class="sort-desc">Remember Me?</span>
+                        </label>
+                    </input>
+                </div>
+                
+                <div id="forgot-pw" class=" post-icon">
+                    <span>New to InfoSecPh? &nbsp
+                        <a href="/log/signup" class="post-label">
+                            <span>Sign up!</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

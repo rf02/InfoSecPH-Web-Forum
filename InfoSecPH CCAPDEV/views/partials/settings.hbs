@@ -1,0 +1,60 @@
+<div class="settings">
+    <div class="profile-container">
+        <div class="profile-pic" id="profile-pic">
+            <div class="img-container-4"><img src="{{log.pfp}}"></div>
+        </div>
+        <div class="username"><p>{{log.username}}</p></div>
+        <div class="name2"><p>{{log.name}}</p></div>
+        <div class="bio"><p>"{{log.bio}}"</p></div>
+    </div>
+    <form action="/log/settings" method="POST">
+        <div class="settings-container">
+            <div class="divider">
+                <div class="log-inputText">
+                    <label for="username" class="log-prompt">Change Username:</label>
+                    <input type="text" name="username">
+                    <span>Username</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="password" class="log-prompt">Change Passwords:</label>
+                    <input type="password" name="password">
+                    <span>Password</span>
+                </div>
+            </div>
+            <div class="divider">
+                <div class="log-inputText">
+                    <label for="firstName" class="log-prompt">Change First Name:</label>
+                    <input type="text" name="firstName">
+                    <span>First Name</span>
+                </div>
+                <div class="log-inputText">
+                    <label for="lastName" class="log-prompt">Change Last Name:</label>
+                    <input type="text" name="lastName">
+                    <span>Last Name</span>
+                </div>
+            </div>
+            <div class="divider">
+                <div class="log-inputText log-pfp">
+                    <label for="pfp" class="log-prompt">PFP URL:</label>
+                    <input type="text text-pfp" name="pfp">
+                    <span>URL</span>
+                </div>
+            </div>
+            <div class="divider">
+                <div class="log-inputText log-bio">
+                    <label for="bio" class="log-prompt">Edit Bio:</label>
+                    <input type="text text-bio" name="bio">
+                    <span>Bio</span>
+                </div>
+            </div>
+            <div class="divider">
+                <button id="editBtn" type="submit">Save Changes</button>
+            </div>
+        </div>
+    </form>
+    <form action="/log/settings?_method=DELETE" method="POST">
+        <div class="delete-user-container">
+            <button id="delete-user-Btn" type="submit"> DELETE USER</button>
+        </div>
+    </form>
+</div>
